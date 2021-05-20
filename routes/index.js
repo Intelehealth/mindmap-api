@@ -90,7 +90,8 @@ router.post('/mindmap/image', (req, res) => {
             let details = {
                 mindmap_name: filename,
                 date_created: new Date(),
-                mindmap_json: value
+                mindmap_json: value,
+                licensekey_name: key
             };
             mysql.query('Insert into mindmaps SET ?', details, (err, results, fields) => {
                 if (err) res.status(400).json({ message: err.message })
